@@ -16,6 +16,8 @@ const xss = require("xss-clean");
 const rateLimiter = require("express-rate-limit");
 
 app.use(express.json());
+app.use(express.static("public"));
+
 // extra packages
 // security
 app.use(helmet());
@@ -29,9 +31,9 @@ app.use(
   })
 );
 // routes
-app.get("/", (req, res) => {
-  res.send("jobs api");
-});
+// app.get("/", (req, res) => {
+//   res.send("jobs api");
+// });
 
 const authenticateUser = require("./middleware/authentication");
 
